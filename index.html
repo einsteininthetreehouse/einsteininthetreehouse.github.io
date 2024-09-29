@@ -7,43 +7,63 @@
   <title>Einstein in the Tree House</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for the background images */
+    .bg-container {
+      position: relative; /* Make the container relative */
+      height: 100vh; /* Full height */
+      overflow: hidden; /* Hide overflow */
+    }
+
+    .bg-image {
+      background-image: url('assets/images/einstein.png'); /* Replace with your image URL */
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      height: 100%; /* Full height */
+      width: 100%; /* Full width */
+      transition: opacity 0.3s ease; /* Smooth transition for opacity */
+    }
+
+    /* Hide the second image by default */
+    .bg-image.right {
+      opacity: 0; /* Hidden by default */
+      pointer-events: none; /* Prevent mouse events */
+    }
+
+    /* Show the second image on smaller screens */
+    @media (max-width: 768px) {
+      .bg-image.right {
+        opacity: 1; /* Show on smaller screens */
+        pointer-events: auto; /* Allow mouse events */
+      }
+    }
+
+    /* Adjustments for further smaller screens */
+    @media (max-width: 480px) {
+      .bg-image.left {
+        display: none; /* Hide the left image on very small screens */
+      }
+
+      .bg-image.right {
+        transform: translateX(0); /* Reset transform if needed */
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <!-- Hero Section -->
-  <section class="bg-white p-12 text-center">
-    <h2 class="text-4xl font-bold text-blue-600">Einstein in the Tree House</h2>
-    <p class="mt-4 text-lg text-gray-700">
-      This is a simple page styled with Tailwind CSS.
-    </p>
-    <a href="#" class="mt-6 inline-block px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">Get Started</a>
-  </section>
+<body class="bg-gray-100">
+  <div class="bg-container">
+    <div class="bg-image left"></div> <!-- Left Image -->
+    <div class="bg-image right"></div> <!-- Right Image -->
+  </div>
 
-  <!-- Features Section -->
-  <section class="bg-gray-100 py-12">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      <!-- Feature 1 -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-2xl font-bold mb-4">Feature One</h3>
-        <p class="text-gray-600">This is the first feature of the page.</p>
-      </div>
-
-      <!-- Feature 2 -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-2xl font-bold mb-4">Feature Two</h3>
-        <p class="text-gray-600">This is the second feature of the page.</p>
-      </div>
-
-      <!-- Feature 3 -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-2xl font-bold mb-4">Feature Three</h3>
-        <p class="text-gray-600">This is the third feature of the page.</p>
-      </div>
+  <!-- Overlay for better text visibility -->
+  <div class="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center absolute top-0 left-0 right-0">
+    <h2 class="text-5xl font-bold text-white uppercase">Einstein in the Tree House</h2>
+    <div class="mt-8 space-x-4">
+      <p class="text-white">..coming soon..</p>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-blue-500 p-4 text-center text-white">
-    <p>&copy; 2024 Einstein in the Tree House. All rights reserved.</p>
-  </footer>
+  </div>
 </body>
 </html>
